@@ -57,8 +57,7 @@ Decode the ID Token to extract user claims such as name and email:
 
 ```typescript
 const userClaims = fayda.decodeIdToken(tokens.id_token);
-console.log("User Claims:", userClaims);5. Decode ID Token
-Decode the ID Token to extract user claims such as name and email:
+console.log("User Claims:", userClaims);
 ```
 
 
