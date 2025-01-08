@@ -1,7 +1,6 @@
 # Fayda Auth SDK
 
 ![npm](https://img.shields.io/npm/v/fayda-auth-sdk)
-![license](https://img.shields.io/npm/l/fayda-auth-sdk)
 
 Fayda Auth SDK simplifies integration with the Fayda eSignet platform using OpenID Connect (OIDC). Quickly set up secure authentication and access user data in your applications.
 
