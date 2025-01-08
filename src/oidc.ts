@@ -1,5 +1,5 @@
 import axios, { AxiosError } from "axios";
-import {jwtDecode} from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 import { generateCodeVerifier, generateCodeChallenge } from "./utils";
 
 interface FaydaOIDCConfig {
@@ -55,7 +55,9 @@ export class FaydaOIDC {
   /**
    * Exchanges an authorization code for tokens (access and ID tokens).
    */
-  public async exchangeCodeForTokens(authorizationCode: string): Promise<Tokens> {
+  public async exchangeCodeForTokens(
+    authorizationCode: string
+  ): Promise<Tokens> {
     const data = new URLSearchParams({
       grant_type: "authorization_code",
       code: authorizationCode,
@@ -65,11 +67,15 @@ export class FaydaOIDC {
     });
 
     try {
-      const response = await axios.post<Tokens>(this.tokenEndpoint, data.toString(), {
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      });
+      const response = await axios.post<Tokens>(
+        this.tokenEndpoint,
+        data.toString(),
+        {
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        }
+      );
       return response.data;
     } catch (error) {
       this.handleAxiosError(error, "Failed to exchange code for tokens");
@@ -99,7 +105,11 @@ export class FaydaOIDC {
     try {
       return jwtDecode(idToken);
     } catch (error) {
-      throw new Error(`Failed to decode ID token: ${error instanceof Error ? error.message : String(error)}`);
+      throw new Error(
+        `Failed to decode ID token: ${
+          error instanceof Error ? error.message : String(error)
+        }`
+      );
     }
   }
 
