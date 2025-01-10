@@ -85,7 +85,7 @@ export class FaydaOIDC {
   /**
    * Retrieves user information using the access token.
    */
-  public async getUserInfo(accessToken: string): Promise<any> {
+  public async getUserInfo(accessToken: string): Promise<unknown> {
     try {
       const response = await axios.get(this.userInfoEndpoint, {
         headers: {
@@ -101,7 +101,7 @@ export class FaydaOIDC {
   /**
    * Decodes an ID token (JWT) to extract user information.
    */
-  public decodeIdToken(idToken: string): any {
+  public decodeIdToken(idToken: string): unknown {
     try {
       return jwtDecode(idToken);
     } catch (error) {
